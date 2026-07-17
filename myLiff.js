@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        document.getElementById("loadingScreen").style.display = "none";
-
         // check if user is registered
         const profile = await liff.getProfile();
         const gotUser = await getUser(profile.userId);
+
+        document.getElementById("loadingScreen").style.display = "none";
     
         // show registration if not registered, else dashboard
         if (!gotUser.registered) {
