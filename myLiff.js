@@ -1,13 +1,13 @@
-import { config } from './ccc.js';
+// import { config } from './ccc.js';
 
 document.addEventListener("DOMContentLoaded", function () {
-    const id = config.LIFF_ID;
+    // const id = config.LIFF_ID;
 
-    console.log(id);
-    console.log(id.length);
-    console.log([...id].map(c => c.charCodeAt(0)));
-    console.log(liff.init.toString());
-    console.log(liff.getVersion?.());
+    // console.log(id);
+    // console.log(id.length);
+    // console.log([...id].map(c => c.charCodeAt(0)));
+    // console.log(liff.init.toString());
+    // console.log(liff.getVersion?.());
     // Initialize your LIFF ID from your config
     liff.init({ liffId: "2010715696-y1Wcpltm" }).then(() => {
         if (!liff.isLoggedIn()) {
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
             };
 
             // Send this payload via fetch() to your Google Apps Script Web App URL (doPost)
-            fetch(config.GAS_URL, {
+            fetch("https://script.google.com/macros/s/AKfycby9VEvS-xMwieDqf57Udh1IJmLpoXdE2oNoowCdF1048Fi3qZnHx4f8z1TGPeW5Ps3kVg/exec", {
                 method: "POST",
                 body: JSON.stringify(formData)
             })
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 async function getUser(userId) {
-    fetch(config.GAS_URL, {
+    fetch("https://script.google.com/macros/s/AKfycby9VEvS-xMwieDqf57Udh1IJmLpoXdE2oNoowCdF1048Fi3qZnHx4f8z1TGPeW5Ps3kVg/exec", {
         method: "POST",
         body: JSON.stringify({
             userId: userId
