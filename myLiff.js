@@ -1,15 +1,9 @@
-// import { config } from './ccc.js';
+import { config } from './ccc.js';
 
 document.addEventListener("DOMContentLoaded", function () {
-    // const id = config.LIFF_ID;
-
-    // console.log(id);
-    // console.log(id.length);
-    // console.log([...id].map(c => c.charCodeAt(0)));
-    // console.log(liff.init.toString());
-    // console.log(liff.getVersion?.());
+    console.log(JSON.stringify({ liffId: config.LIFF_ID} ));
     // Initialize your LIFF ID from your config
-    liff.init({ liffId: "2010715696-y1Wcpltm" }).then(() => {
+    liff.init({ liffId: LIFF_ID }).then(() => {
         if (!liff.isLoggedIn()) {
             liff.login();
         } else {
@@ -51,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
             };
 
             // Send this payload via fetch() to your Google Apps Script Web App URL (doPost)
-            fetch("https://script.google.com/macros/s/AKfycby9VEvS-xMwieDqf57Udh1IJmLpoXdE2oNoowCdF1048Fi3qZnHx4f8z1TGPeW5Ps3kVg/exec", {
+            fetch(GAS_URL, {
                 method: "POST",
                 body: JSON.stringify(formData)
             })
@@ -59,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 if (data.status === "success") {
                     document.getElementById("registrationScreen").style.display = "none";
-                    document.getElementById("welcomText").innerText = `Welcome, ${profile.displayName}!`
+                    document.getElementById("welcomeText").innerText = `Welcome, ${profile.displayName}!`
                     document.getElementById("dashboardScreen").style.display = "block";
                 }
             })
@@ -73,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 async function getUser(userId) {
-    fetch("https://script.google.com/macros/s/AKfycby9VEvS-xMwieDqf57Udh1IJmLpoXdE2oNoowCdF1048Fi3qZnHx4f8z1TGPeW5Ps3kVg/exec", {
+    fetch(GAS_URL, {
         method: "POST",
         body: JSON.stringify({
             userId: userId
