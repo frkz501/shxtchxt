@@ -1,0 +1,83 @@
+/* Keep your existing body, .card, and .logo styles at the top */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #FFE8DD, #FFD8C8, #F9C5B6);
+    font-family: Poppins, sans-serif;
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    border-radius: 28px;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.15);
+    text-align: center;
+    box-sizing: border-box;
+    max-height: 90vh;
+    overflow-y: auto; /* Allows scrolling if forms get too long */
+}
+
+.logo { font-size: 60px; margin-bottom: 10px; }
+h2, h3 { color: #333; margin-top: 0; }
+
+/* Form Inputs */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 10px;
+}
+.primary { background: #FF7B54; color: white; }
+.secondary { background: #eee; color: #333; }
+.btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* Dashboard Sections */
+.section {
+    text-align: left;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* Relative Cards */
+.relative-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+.rel-info { font-size: 13px; color: #555; }
+.rel-info strong { color: #222; font-size: 14px; }
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+}

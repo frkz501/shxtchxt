@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="card">
+      <div class="logo">🍑</div>
+      
+      <div id="loadingScreen">
+        <h2 id="statusText">Connecting to LINE...</h2>
+      </div>
+
+      <div id="registrationScreen" style="display: none;">
+        <h2>Register</h2>
+        <p>Please complete your profile to continue.</p>
+        <form id="regForm">
+          <input type="text" id="regFullName" placeholder="Full Name (Required)" required>
+          <input type="email" id="regEmail" placeholder="Email (Required)" required>
+          <input type="text" id="regEmployeeId" placeholder="Employee ID">
+          <input type="text" id="regPosition" placeholder="Position">
+          <input type="text" id="regAssignedPost" placeholder="Assigned Post">
+          <input type="text" id="regDivision" placeholder="Division">
+          <input type="text" id="regSupervisor" placeholder="Supervisor Position">
+          <input type="tel" id="regWorkPhone" placeholder="Work Phone">
+          <input type="date" id="regDateOfHire" placeholder="Date of Hire">
+          <button type="submit" class="btn primary">Complete Registration</button>
+        </form>
+      </div>
+
+      <div id="dashboardScreen" style="display: none;">
+        <h2 id="welcomeText">Welcome!</h2>
+        
+        <div class="section">
+          <h3>Add Relative</h3>
+          <form id="addRelativeForm">
+            <input type="text" id="relFullName" placeholder="Relative Full Name" required>
+            <input type="text" id="relRelation" placeholder="Relation (e.g., Mother)" required>
+            <input type="text" id="relAliases" placeholder="Aliases (comma separated)">
+            <input type="text" id="relOccupation" placeholder="Occupation">
+            <input type="text" id="relWorkplace" placeholder="Workplace">
+            <button type="submit" class="btn secondary">Add Relative</button>
+          </form>
+        </div>
+
+        <div class="section">
+          <h3>Your Relatives</h3>
+          <div id="relativesList">
+            <p>Loading relatives...</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
