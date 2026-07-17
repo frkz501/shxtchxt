@@ -1,6 +1,8 @@
+import { config } from './ccc.js';
+
 document.addEventListener("DOMContentLoaded", function () {
     // Initialize your LIFF ID from your config
-    liff.init({ liffId: LIFF_ID }).then(() => {
+    liff.init({ liffId: config.LIFF_ID }).then(() => {
         if (!liff.isLoggedIn()) {
             liff.login();
         } else {
@@ -42,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             };
 
             // Send this payload via fetch() to your Google Apps Script Web App URL (doPost)
-            fetch(GAS_URL, {
+            fetch(config.GAS_URL, {
                 method: "POST",
                 body: JSON.stringify(formData)
             })
@@ -64,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 async function getUser(userId) {
-    fetch(GAS_URL, {
+    fetch(config.GAS_URL, {
         method: "POST",
         body: JSON.stringify({
             userId: userId
