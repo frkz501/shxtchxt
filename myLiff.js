@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!gotUser.registered) {
             document.getElementById("registrationScreen").style.display = "block";
         } else {
+            document.getElementById("welcomeText").innerText = `Welcome, ${profile.displayName}!`;
             document.getElementById("dashboardScreen").style.display = "block";
         }
 
@@ -60,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 alert(data.message);
                 if (data.status === "success") {
                     document.getElementById("registrationScreen").style.display = "none";
-                    document.getElementById("welcomeText").innerText = `Welcome, ${profile.displayName}!`
+                    document.getElementById("welcomeText").innerText = `Welcome, ${profile.displayName}!`;
                     document.getElementById("dashboardScreen").style.display = "block";
                 }
             })
