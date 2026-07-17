@@ -1,7 +1,8 @@
 import { config } from './ccc.js';
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log(JSON.stringify({ liffId: config.LIFF_ID} ));
+    console.log(window.liff);
+    console.log(window.liff.init);
     // Initialize your LIFF ID from your config
     liff.init({ liffId: config.LIFF_ID }).then(() => {
         if (!liff.isLoggedIn()) {
