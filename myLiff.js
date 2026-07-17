@@ -5,7 +5,7 @@ import { config } from './ccc.js';
 
     try {
         await liff.init({
-            liffId: "YOUR_LIFF_ID"
+            liffId: config.LIFF_ID
         });
 
         console.log("OK");
