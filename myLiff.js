@@ -3,7 +3,7 @@ import { config } from './ccc.js';
 document.addEventListener("DOMContentLoaded", function () {
     console.log(JSON.stringify({ liffId: config.LIFF_ID} ));
     // Initialize your LIFF ID from your config
-    liff.init({ liffId: LIFF_ID }).then(() => {
+    liff.init({ liffId: config.LIFF_ID }).then(() => {
         if (!liff.isLoggedIn()) {
             liff.login();
         } else {
