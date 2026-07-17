@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function getUser(userId) {
-    const res = await fetch(GAS_URL, {
+    const res = await fetch(config.GAS_URL, {
         method: "POST",
         body: JSON.stringify({
             userId
