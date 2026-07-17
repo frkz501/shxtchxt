@@ -18,15 +18,15 @@
         <p>Please complete your profile to continue.</p>
         <form id="regForm">
           <input type="text" id="regFullName" placeholder="Full Name (Required)" required>
-          <input type="email" id="regEmail" placeholder="Email (Required)" required>
+          <input type="email" id="regEmail" placeholder="Email (Gmail Only - Required)" required>
           <input type="text" id="regEmployeeId" placeholder="Employee ID">
           <input type="text" id="regPosition" placeholder="Position">
           <input type="text" id="regAssignedPost" placeholder="Assigned Post">
           <input type="text" id="regDivision" placeholder="Division">
           <input type="text" id="regSupervisor" placeholder="Supervisor Position">
           <input type="tel" id="regWorkPhone" placeholder="Work Phone">
+          <p style="font-size: 13px;">Date of Hire</p>
           <input type="date" id="regDateOfHire" placeholder="Date of Hire">
-          <p>Date of Hire</p>
           <button type="submit" class="btn primary">Complete Registration</button>
         </form>
       </div>
@@ -34,7 +34,7 @@
       <div id="dashboardScreen" style="display: none;">
         <h2 id="welcomeText">Welcome!</h2>
         
-        <div class="section">
+        <div class="section" style="display: none;">
           <h3>Add Relative</h3>
           <form id="addRelativeForm">
             <input type="text" id="relFullName" placeholder="Relative Full Name" required>
