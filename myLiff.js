@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             position: document.getElementById("regPosition").value,
             assignedPost: document.getElementById("regAssignedPost").value,
             division: document.getElementById("regDivision").value,
+            department: document.getElementById("regDepartment").value,
             supervisor: document.getElementById("regSupervisor").value,
             workPhone: document.getElementById("regWorkPhone").value,
             dateOfHire: document.getElementById("regDateOfHire").value,
