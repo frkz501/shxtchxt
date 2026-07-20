@@ -14,35 +14,38 @@
       </div>
 
       <div id="registrationScreen" style="display: none;">
-        <h2>Register</h2>
-        <p>Please complete your profile to continue.</p>
-        <form id="regForm">
+        <h2 id="regFormTitle">Register</h2>
+        <p id="regFormDesc">Please complete your profile to continue.</p>
+        <form id="regForm" data-mode="register">
           <input type="text" id="regFullName" placeholder="Full Name (Required)" required>
           <input type="email" id="regEmail" placeholder="Email (Gmail Only - Required)" required>
           <input type="text" id="regEmployeeId" placeholder="Employee ID">
           <input type="text" id="regPosition" placeholder="Position">
-          <input type="text" id="regAssignedPost" placeholder="Assigned Post">
-          <input type="text" id="regDivision" placeholder="Division">
-          <input type="text" id="regSupervisor" placeholder="Supervisor Position">
+          <input type="text" id="regAssignedPost" placeholder="Assigned Post สำนักงานใหญ่/กฟข./กฟฟ.">
+          <input type="text" id="regDivision" placeholder="Division กอง">
+          <input type="text" id="regSupervisor" placeholder="Supervisor Position ตำแหน่งผู้อนุมัติ">
           <input type="tel" id="regWorkPhone" placeholder="Work Phone">
+          <input type="text" id="regAliases" placeholder="Aliases (comma separated)">
           <p style="font-size: 13px;">Date of Hire</p>
           <input type="date" id="regDateOfHire" placeholder="Date of Hire">
-          <button type="submit" class="btn primary">Complete Registration</button>
+          <button type="submit" id="regSubmitBtn" class="btn primary">Complete Registration</button>
+          <button type="button" id="regCancelBtn" class="btn secondary" style="display: none;">Cancel</button>
         </form>
       </div>
 
       <div id="dashboardScreen" style="display: none;">
         <h2 id="welcomeText">Welcome!</h2>
-        
-        <div class="section" style="display: none;">
+        <button id="editProfileBtn" class="btn secondary" style="margin-bottom: 20px;">Edit Profile</button>
+        <div class="section">
           <h3>Add Relative</h3>
-          <form id="addRelativeForm">
+          <form id="addRelativeForm" data-mode="add">
             <input type="text" id="relFullName" placeholder="Relative Full Name" required>
             <input type="text" id="relRelation" placeholder="Relation (e.g., Mother)" required>
+            <input type="text" id="relOccupation" placeholder="Occupation" required>
+            <input type="text" id="relWorkplace" placeholder="Workplace" required>
             <input type="text" id="relAliases" placeholder="Aliases (comma separated)">
-            <input type="text" id="relOccupation" placeholder="Occupation">
-            <input type="text" id="relWorkplace" placeholder="Workplace">
-            <button type="submit" class="btn secondary">Add Relative</button>
+            <button type="submit" id="relSubmitBtn" class="btn secondary">Add Relative</button>
+            <button type="button" id="relCancelBtn" class="btn secondary" style="display: none;">Cancel</button>
           </form>
         </div>
 
