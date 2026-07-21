@@ -115,10 +115,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 });
 
-// Centralized GAS Fetcher
+// Centralized GAS Fetcher with Error Handling
 async function apiCall(payload) {
-    const res = await fetch(config.GAS_URL, { method: "POST", body: JSON.stringify(payload) });
-    return await res.json();
+    try {
+        const res = await fetch(config.GAS_URL, { 
+            method: "POST", 
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' } // Safest for GAS CORS
+        });
+        
+        if (!res.ok) throw new Error("Network response failed");
+        return await res.json();
+        
+    } catch (error) {
+        console.error("API Call Error:", error);
+        alert("Operation failed. Check your connection or backend script.");
+        return { status: "error", message: error.message }; 
+    }
 }
 
 async function loadUserData(userId) {
