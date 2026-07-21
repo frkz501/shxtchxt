@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             document.getElementById("regPosition").value = globalUserData.position || "";
             document.getElementById("regAssignedPost").value = globalUserData.assignedPost || "";
             document.getElementById("regDivision").value = globalUserData.division || "";
+            document.getElementById("regDepartment").value = globalUserData.department || "";
             document.getElementById("regSupervisor").value = globalUserData.supervisor || "";
             document.getElementById("regWorkPhone").value = globalUserData.workPhone || "";
             // Format date for input type="date" (YYYY-MM-DD) safely in local time
