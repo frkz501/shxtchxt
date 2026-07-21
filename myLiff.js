@@ -179,8 +179,8 @@ function renderRelatives(relatives) {
                 <em>Aliases: ${rel.aliases}</em>
             </div>
             <div class="rel-actions">
-                <button class="edit-btn" data-id="${rel.id}">✏️</button>
-                <button class="delete-btn" data-id="${rel.id}">🗑️</button>
+                <button class="edit-btn" data-id="${rel.id}" title="edit relative">✏️</button>
+                <button class="delete-btn" data-id="${rel.id}" title="delete relative">🗑️</button>
             </div>
         `;
         container.appendChild(div);
