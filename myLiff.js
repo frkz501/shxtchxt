@@ -34,9 +34,16 @@ document.addEventListener("DOMContentLoaded", async () => {
             document.getElementById("regDivision").value = globalUserData.division || "";
             document.getElementById("regSupervisor").value = globalUserData.supervisor || "";
             document.getElementById("regWorkPhone").value = globalUserData.workPhone || "";
-            // Format date for input type="date" (YYYY-MM-DD)
+            // Format date for input type="date" (YYYY-MM-DD) safely in local time
             const d = new Date(globalUserData.dateOfHire);
-            document.getElementById("regDateOfHire").value = !isNaN(d) ? d.toISOString().split('T')[0] : "";
+            if (!isNaN(d)) {
+                const yyyy = d.getFullYear();
+                const mm = String(d.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+                const dd = String(d.getDate()).padStart(2, '0');
+                document.getElementById("regDateOfHire").value = `${yyyy}-${mm}-${dd}`;
+            } else {
+                document.getElementById("regDateOfHire").value = "";
+            }
             document.getElementById("regAliases").value = globalUserData.aliases || "";
         }
 
@@ -104,6 +111,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         };
 
         const res = await apiCall(formData);
+        alert(res.message);
         if (res.status === "success") {
             resetRelFormUI();
             await loadUserData(currentUserProfile.userId);
@@ -211,7 +219,10 @@ function renderRelatives(relatives) {
             if(confirm("Delete this relative?")) {
                 const relId = e.target.getAttribute('data-id');
                 const res = await apiCall({ action: 'deleteRelative', relId: relId });
-                if(res.status === 'success') loadUserData(currentUserProfile.userId); // Reload list
+                alert(res.message);
+                if(res.status === 'success') {
+                    loadUserData(currentUserProfile.userId); // Reload list
+                }
             }
         });
     });
