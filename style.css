@@ -12,15 +12,21 @@ body {
 
 .card {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px; /* Expanded from 400px */
     background: white;
     border-radius: 28px;
-    padding: 30px;
+    padding: 35px; /* Increased for better breathing room */
     box-shadow: 0 15px 40px rgba(0,0,0,.15);
     text-align: center;
     box-sizing: border-box;
     max-height: 90vh;
-    overflow-y: auto; /* Allows scrolling if forms get too long */
+    overflow-y: auto; 
+    animation: fadeIn 0.4s ease-out; /* Smooth load animation */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .logo { font-size: 60px; margin-bottom: 10px; }
@@ -29,28 +35,45 @@ h2, h3 { color: #333; margin-top: 0; }
 /* Form Inputs */
 input {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    padding: 16px; /* Bigger tap targets */
+    margin-bottom: 15px; /* Increased vertical spacing */
+    border: 1.5px solid #ddd;
+    border-radius: 12px; /* Softer, more modern corners */
     box-sizing: border-box;
     font-family: inherit;
+    font-size: 16px; /* Prevents iOS Safari auto-zoom */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth focus */
+}
+
+input:focus {
+    outline: none;
+    border-color: #FF7B54;
+    box-shadow: 0 0 8px rgba(255, 123, 84, 0.2);
 }
 
 /* Buttons */
 .btn {
     width: 100%;
-    padding: 12px;
+    padding: 16px; /* Thicker buttons */
     border: none;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 12px;
+    font-size: 18px; /* Larger, more legible text */
     font-weight: bold;
     cursor: pointer;
     font-family: inherit;
     margin-top: 10px;
+    transition: transform 0.15s ease, background-color 0.2s ease;
 }
+
+.btn:active {
+    transform: scale(0.97); /* Tactile shrink effect on tap */
+}
+
 .primary { background: #FF7B54; color: white; }
+.primary:hover { background: #e56d49; } /* Subtle hover state */
+
 .secondary { background: #eee; color: #333; }
+.secondary:hover { background: #e0e0e0; }
 .btn:disabled { opacity: 0.7; cursor: not-allowed; }
 
 /* Dashboard Sections */
@@ -67,17 +90,29 @@ input {
     justify-content: space-between;
     align-items: center;
     background: #f9f9f9;
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    padding: 16px; /* More padding */
+    border-radius: 12px;
+    margin-bottom: 12px;
     border: 1px solid #eee;
+    transition: box-shadow 0.2s ease;
 }
-.rel-info { font-size: 13px; color: #555; }
-.rel-info strong { color: #222; font-size: 14px; }
+
+.relative-card:active {
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05); /* Tap effect */
+}
+
+.rel-info { font-size: 15px; color: #555; }
+.rel-info strong { color: #222; font-size: 17px; }
+
 .delete-btn {
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 24px; /* Larger touch target for the trash icon */
     cursor: pointer;
-    padding: 5px;
+    padding: 10px;
+    transition: transform 0.2s ease;
+}
+
+.delete-btn:active {
+    transform: scale(0.85); /* Satisfying bounce on tap */
 }
