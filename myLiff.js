@@ -22,7 +22,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     // 1. Click "Edit Profile" from Dashboard
     document.getElementById("editProfileBtn").addEventListener("click", () => {
         document.getElementById("dashboardScreen").style.display = "none";
-        document.getElementById("registrationScreen").style.display = "block";
+        
+        const regScreen = document.getElementById("registrationScreen");
+        regScreen.style.display = "block";
+        
+        // Reset the class and force a browser reflow so the animation replays reliably
+        regScreen.className = "";
+        void regScreen.offsetWidth; 
+        regScreen.className = "stretch-in";
 
         // Populate the form with current data
         if (globalUserData) {
@@ -58,7 +65,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     // 2. Cancel Profile Edit
     document.getElementById("regCancelBtn").addEventListener("click", () => {
         document.getElementById("registrationScreen").style.display = "none";
-        document.getElementById("dashboardScreen").style.display = "block";
+        
+        const dashboard = document.getElementById("dashboardScreen");
+        dashboard.style.display = "block";
+        
+        // Fade the dashboard back in
+        dashboard.className = "";
+        void dashboard.offsetWidth;
+        dashboard.className = "fade-in";
+        
         resetRegFormUI();
     });
 
@@ -151,11 +166,13 @@ async function loadUserData(userId) {
 
     if (!dbData.user.registered) {
         document.getElementById("registrationScreen").style.display = "block";
+        document.getElementById("registrationScreen").className = "fade-in"; // Add fade
         document.getElementById("dashboardScreen").style.display = "none";
     } else {
         document.getElementById("welcomeText").innerText = `Welcome, ${dbData.user.fullName}!`;
         document.getElementById("registrationScreen").style.display = "none";
         document.getElementById("dashboardScreen").style.display = "block";
+        document.getElementById("dashboardScreen").className = "fade-in"; // Add fade
         renderRelatives(dbData.relatives);
     }
 }
@@ -193,6 +210,12 @@ function renderRelatives(relatives) {
             const rel = relatives.find(r => r.id.toString() === relId);
             
             if (rel) {
+                const relForm = document.getElementById("addRelativeForm");
+                
+                // Clear old animations, force reflow, and trigger stretch
+                relForm.classList.remove("stretch-in");
+                void relForm.offsetWidth;
+                relForm.classList.add("stretch-in");
                 // Populate Form
                 document.getElementById("relFullName").value = rel.fullName;
                 document.getElementById("relRelation").value = rel.relation;
@@ -203,12 +226,12 @@ function renderRelatives(relatives) {
                 // Switch UI to Edit Mode
                 currentEditingRelId = relId;
                 document.getElementById("relFormTitle").innerText = "Edit Relative";
-                document.getElementById("addRelativeForm").dataset.mode = "update";
+                relForm.dataset.mode = "update";
                 document.getElementById("relSubmitBtn").innerText = "Update Relative";
                 document.getElementById("relCancelBtn").style.display = "inline-block";
                 
                 // Scroll up to form
-                document.getElementById("addRelativeForm").scrollIntoView({ behavior: 'smooth' });
+                relForm.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
