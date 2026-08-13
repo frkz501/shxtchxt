@@ -27081,6 +27081,7 @@ h=A.ag(["Content-Type","text/plain;charset=utf-8"],i,i)
 s=10
 return A.N(A.aSh(j,B.dl.Vj(a,null),h),$async$qN)
 case 10:n=d
+A.at5().$1("GAS response: "+A.k(n))
 if(n.b===200){j=n
 j=t.a.a(B.dl.UL(A.aRw(A.aPo(j.e)).h4(j.w),null))
 q=j
@@ -87036,8 +87037,8 @@ r.eS(B.d.e7(s+296*a,0,q),B.hc,B.bs)},
 R2(){A.oE(B.EU,new A.anj(this),t.P)},
 lY(){var s=0,r=A.R(t.H),q,p=this,o,n,m,l
 var $async$lY=A.S(function(a,b){if(a===1)return A.O(b,r)
-for(;;)switch(s){case 0:l=p.a.c
-s=l?3:5
+for(;;)switch(s){case 0:m=p.a.c
+s=m?3:5
 break
 case 3:p.x="mock_user_123"
 p.y="Preview User"
@@ -87054,13 +87055,12 @@ case 6:o=b
 p.x=o.a
 p.y=o.b
 case 4:p.a8(new A.an5(p))
-l=A.ag(["action","getUserData","userId",p.x,"dispName",p.y],t.N,t.z)
+m=A.ag(["action","getUserData","userId",p.x,"dispName",p.y],t.N,t.z)
 n=p.a.c
+l=A
 s=7
-return A.N(A.qN(l,n),$async$lY)
-case 7:m=b
-A.at5().$1("GAS: "+m.k(0))
-p.a8(new A.an6(p,m))
+return A.N(A.qN(m,n),$async$lY)
+case 7:p.a8(new l.an6(p,b))
 $.X.fr$.push(new A.an7(p))
 case 1:return A.P(q,r)}})
 return A.Q($async$lY,r)},
